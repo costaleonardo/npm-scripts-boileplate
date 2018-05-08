@@ -1,0 +1,21 @@
+{
+  "name": "npm-scripts-boileplate",
+  "version": "1.0.0",
+  "description": "Boilerplate for using NPM Scripts as a task runner.",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently -k \"npm run dev\" \"npm run watch-scss\"",
+    "dev": "lite-server",
+    "db": "json-server --watch db.json --port 3005",
+    "build-js": "mkdir -p dist/js && uglifyjs js/*.js -m -o dist/js/app.min.js",
+    "lint": "lint jshint js/**/**.js",
+    "compile-scss": "node-sass --include-path scss scss/style.scss dist/css/style.css",
+    "watch-scss": "nodemon -e scss -x \"npm run compile-scss\"",
+    "test": "mocha test",
+    "pretest": "npm run lint",
+    "posttest": "echo the test has been run!",
+    "bash": "Location of the bash/shell script file"
+  },
+  "author": "Leonardo Da Costa <costaleonardo97@gmail.com>",
+  "license": "ISC"
+}
